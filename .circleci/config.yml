@@ -9,7 +9,7 @@ jobs:
       - run:
           name: on error
           command: echo "You had an error bro!"
-          when: on_error
+          when: on_fail
 
 workflows:
   error_workflow:
