@@ -1,0 +1,18 @@
+version: 2.1
+
+jobs:
+  test-error:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: return 1
+      - run:
+          name: on error
+          command: echo "You had an error bro!"
+          when: on_error
+
+workflows:
+  error_workflow:
+    jobs:
+      - test-error
+
